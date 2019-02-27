@@ -656,3 +656,11 @@ MOSQUITTO_PORT=9001
 ### COUCHDB ###################################################
 
 COUCHDB_PORT=5984
+
+### SPHINX SEARCH #########################################
+
+#SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.override.conf
+SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.conf
+SPHINX_SEARCH_LOG_PATH=./logs/sphinxsearch
+SPHINX_SEARCH_PORT=36307
+SPHINX_SEARCH_PORT_MYSQL=36308
