@@ -36,7 +36,7 @@ RUN ln -sv /dev/stdout /opt/sphinx/log/searchd.log
 EXPOSE 36307
 EXPOSE 36308
 
-#VOLUME /opt/sphinx/conf
+VOLUME /opt/sphinx/conf
 
 #CMD indexer --config /opt/sphinx/conf/sphinx.conf index
 #CMD indexer --all --rotate --config /opt/sphinx/conf/sphinx.conf

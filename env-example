@@ -659,6 +659,7 @@ COUCHDB_PORT=5984
 
 ### SPHINX SEARCH #########################################
 
+# Use file sphinx.override.conf for custom sphinx search configuration, it excluded form git
 #SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.override.conf
 SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.conf
 SPHINX_SEARCH_LOG_PATH=./logs/sphinxsearch
