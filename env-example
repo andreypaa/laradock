@@ -671,6 +671,8 @@ MANTICORE_HTTP_PORT=9308
 
 # Use file sphinx.override.conf for custom sphinx search configuration, it excluded form git
 #SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.override.conf
+# or from another project, example
+#SPHINX_SEARCH_CONFIG=../some_project/var/sphinx_docker.conf
 SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.conf
 SPHINX_SEARCH_LOG_PATH=./logs/sphinxsearch
 SPHINX_SEARCH_PORT=36307
