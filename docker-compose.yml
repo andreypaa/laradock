@@ -1431,3 +1431,63 @@ services:
       networks:
         - frontend
         - backend
+
+  ### PHP-FPM ##############################################
+    php-fpm5:
+      build:
+        context: ./php-fpm
+        args:
+          - LARADOCK_PHP_VERSION=5.6
+          - LARADOCK_PHALCON_VERSION=${PHALCON_VERSION}
+          - INSTALL_XDEBUG=false
+          - INSTALL_PHPDBG=false
+          - INSTALL_BLACKFIRE=false
+          - INSTALL_SSH2=false
+          - INSTALL_SOAP=false
+          - INSTALL_XSL=false
+          - INSTALL_IMAP=true
+          - INSTALL_MONGO=false
+          - INSTALL_AMQP=false
+          - INSTALL_MSSQL=false
+          - INSTALL_BCMATH=false
+          - INSTALL_GMP=false
+          - INSTALL_PHPREDIS=false
+          - INSTALL_MEMCACHED=false
+          - INSTALL_OPCACHE=false
+          - INSTALL_EXIF=false
+          - INSTALL_AEROSPIKE=false
+          - INSTALL_MYSQLI=true
+          - INSTALL_PGSQL=false
+          - INSTALL_PG_CLIENT=false
+          - INSTALL_INTL=false
+          - INSTALL_GHOSTSCRIPT=false
+          - INSTALL_LDAP=false
+          - INSTALL_PHALCON=false
+          - INSTALL_SWOOLE=false
+          - INSTALL_IMAGE_OPTIMIZERS=false
+          - INSTALL_IMAGEMAGICK=false
+          - INSTALL_CALENDAR=false
+          - INSTALL_FAKETIME=false
+          - INSTALL_IONCUBE=false
+          - INSTALL_APCU=false
+          - INSTALL_YAML=false
+          - INSTALL_ADDITIONAL_LOCALES=false
+          - INSTALL_MYSQL_CLIENT=true
+          - ADDITIONAL_LOCALES=
+      volumes:
+        - ./php-fpm/php5.6.ini:/usr/local/etc/php/php.ini
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      expose:
+        - "9000"
+      extra_hosts:
+        - "dockerhost:${DOCKER_HOST_IP}"
+      environment:
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+        - DOCKER_HOST=tcp://docker-in-docker:2375
+        - FAKETIME=${PHP_FPM_FAKETIME}
+      depends_on:
+        - workspace
+      networks:
+        - backend
+      links:
+        - docker-in-docker
