@@ -677,3 +677,9 @@ SPHINX_SEARCH_CONFIG=./sphinxsearch/sphinx.conf
 SPHINX_SEARCH_LOG_PATH=./logs/sphinxsearch
 SPHINX_SEARCH_PORT=36307
 SPHINX_SEARCH_PORT_MYSQL=36308
+
+### pgadmin ##################################################
+# use this address http://ip6-localhost:5050
+PGADMIN_PORT=5050
+PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+PGADMIN_DEFAULT_PASSWORD=admin
