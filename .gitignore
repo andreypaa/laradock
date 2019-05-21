@@ -13,4 +13,5 @@
 /nginx/ssl/*.key
 /nginx/ssl/*.csr
 
+.DS_Store
 /sphinxsearch/*.override.conf
