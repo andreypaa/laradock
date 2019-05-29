@@ -1534,3 +1534,84 @@ services:
         - backend
       links:
         - docker-in-docker
+
+  ### Workspace Utilities ##################################
+    workspace5:
+      build:
+        context: ./workspace
+        args:
+          - LARADOCK_PHP_VERSION=5.6
+          - LARADOCK_PHALCON_VERSION=${PHALCON_VERSION}
+          - INSTALL_SUBVERSION=false
+          - INSTALL_XDEBUG=false
+          - INSTALL_PHPDBG=false
+          - INSTALL_BLACKFIRE=false
+          - INSTALL_SSH2=false
+          - INSTALL_GMP=false
+          - INSTALL_SOAP=false
+          - INSTALL_XSL=true
+          - INSTALL_LDAP=false
+          - INSTALL_IMAP=true
+          - INSTALL_MONGO=false
+          - INSTALL_AMQP=false
+          - INSTALL_PHPREDIS=false
+          - INSTALL_MSSQL=false
+          - INSTALL_NODE=true
+          - NPM_REGISTRY=${WORKSPACE_NPM_REGISTRY}
+          - INSTALL_YARN=true
+          - INSTALL_NPM_GULP=true
+          - INSTALL_NPM_BOWER=true
+          - INSTALL_NPM_VUE_CLI=false
+          - INSTALL_NPM_ANGULAR_CLI=false
+          - INSTALL_DRUSH=false
+          - INSTALL_WP_CLI=false
+          - INSTALL_DRUPAL_CONSOLE=false
+          - INSTALL_AEROSPIKE=false
+          - INSTALL_V8JS=true
+          - COMPOSER_GLOBAL_INSTALL=true
+          - COMPOSER_AUTH=${WORKSPACE_COMPOSER_AUTH}
+          - COMPOSER_REPO_PACKAGIST=${WORKSPACE_COMPOSER_REPO_PACKAGIST}
+          - INSTALL_WORKSPACE_SSH=false
+          - INSTALL_LARAVEL_ENVOY=false
+          - INSTALL_LARAVEL_INSTALLER=false
+          - INSTALL_DEPLOYER=false
+          - INSTALL_PRESTISSIMO=false
+          - INSTALL_LINUXBREW=false
+          - INSTALL_MC=${WORKSPACE_INSTALL_MC}
+          - INSTALL_SYMFONY=false
+          - INSTALL_PYTHON=true
+          - INSTALL_IMAGE_OPTIMIZERS=true
+          - INSTALL_IMAGEMAGICK=true
+          - INSTALL_TERRAFORM=false
+          - INSTALL_DUSK_DEPS=false
+          - INSTALL_PG_CLIENT=false
+          - INSTALL_PHALCON=false
+          - INSTALL_SWOOLE=false
+          - INSTALL_LIBPNG=true
+          - INSTALL_IONCUBE=false
+          - INSTALL_MYSQL_CLIENT=true
+          - PUID=${WORKSPACE_PUID}
+          - PGID=${WORKSPACE_PGID}
+          - CHROME_DRIVER_VERSION=${WORKSPACE_CHROME_DRIVER_VERSION}
+          - NODE_VERSION=${WORKSPACE_NODE_VERSION}
+          - YARN_VERSION=${WORKSPACE_YARN_VERSION}
+          - DRUSH_VERSION=${WORKSPACE_DRUSH_VERSION}
+          - TZ=${WORKSPACE_TIMEZONE}
+          - BLACKFIRE_CLIENT_ID=${BLACKFIRE_CLIENT_ID}
+          - BLACKFIRE_CLIENT_TOKEN=${BLACKFIRE_CLIENT_TOKEN}
+          - INSTALL_POWERLINE=false
+          - INSTALL_FFMPEG=false
+          - INSTALL_GNU_PARALLEL=false
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      extra_hosts:
+        - "dockerhost:${DOCKER_HOST_IP}"
+      tty: true
+      environment:
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+        - DOCKER_HOST=tcp://docker-in-docker:2375
+      networks:
+        - frontend
+        - backend
+      links:
+        - docker-in-docker
