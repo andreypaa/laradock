@@ -1637,3 +1637,25 @@ services:
         - backend
       links:
         - docker-in-docker
+
+  ### browserless chrome headless ##################################
+    browserless:
+      image: browserless/chrome:latest
+      environment:
+        - DEBUG=${BROWSERLESS_DEBUG}
+        - MAX_CONCURRENT_SESSIONS=${BROWSERLESS_MAX_CONCURRENT_SESSIONS}
+        - CONNECTION_TIMEOUT=${BROWSERLESS_CONNECTION_TIMEOUT}
+        - MAX_QUEUE_LENGTH=${BROWSERLESS_MAX_QUEUE_LENGTH}
+        - PREBOOT_CHROME=${BROWSERLESS_PREBOOT_CHROME}
+        - DEMO_MODE=${BROWSERLESS_DEMO_MODE}
+        - HOST=${BROWSERLESS_HOST}
+        - ENABLE_DEBUGGER=${BROWSERLESS_ENABLE_DEBUGGER}
+        - TOKEN=${BROWSERLESS_TOKEN}
+        - PORT=9090
+      ports:
+        - "${BROWSERLESS_PORT}:9090"
+      volumes:
+        - ${DATA_PATH_HOST}/browserless:/home/blessuser/Downloads
+      networks:
+        - frontend
+        - backend
