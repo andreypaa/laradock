@@ -278,8 +278,10 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+        backend:
+            aliases:
+              - cableru.test
 
 ### Blackfire ########################################
     blackfire:
