@@ -1594,6 +1594,21 @@ services:
         - frontend
         - backend
 
+  ### Sphinx Search engine ####################################
+    sphinxsearchcableru:
+      build: ./sphinxsearch
+      ports:
+        - "${SPHINX_SEARCH_CABLERU_PORT}:36307"
+        - "${SPHINX_SEARCH_CABLERU_PORT_MYSQL}:36308"
+      volumes:
+        - ${SPHINX_SEARCH_CABLERU_LOG_PATH}:/opt/sphinx/log
+        - ${DATA_PATH_HOST}/sphinxcableru/index:/opt/sphinx/index
+        - ${SPHINX_SEARCH_CABLERU_CONFIG}:/opt/sphinx/conf/sphinx.conf
+        - ${SPHINX_SEARCH_CABLERU_WORLDFORMS}:/opt/sphinx/wordforms.dist.txt
+      tty: true
+      networks:
+        - frontend
+        - backend
   ### PHP-FPM ##############################################
     php-fpm5:
       build:
