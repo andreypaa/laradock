@@ -13,5 +13,9 @@
 /nginx/ssl/*.key
 /nginx/ssl/*.csr
 
+/.devcontainer/*
+!/.devcontainer/devcontainer.example.json
+
 .DS_Store
 /sphinxsearch/*.override.conf
+
