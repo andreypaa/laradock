@@ -19,6 +19,9 @@ RUN mkdir -pv /opt/sphinx/log /opt/sphinx/index
 VOLUME /opt/sphinx/index
 VOLUME /opt/sphinx/log
 
+RUN mkdir -pv /opt/sphinx/plugins
+COPY udf.so /opt/sphinx/plugins
+
 # http://sphinxsearch.com/files/sphinx-3.0.1-7fec4f6-linux-amd64.tar.gz
 RUN wget http://sphinxsearch.com/files/sphinx-${SPHINX_VERSION}-linux-amd64.tar.gz -O /tmp/sphinxsearch.tar.gz
 RUN cd /opt/sphinx && tar -xf /tmp/sphinxsearch.tar.gz
