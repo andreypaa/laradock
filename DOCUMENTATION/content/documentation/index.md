@@ -272,10 +272,6 @@ docker-compose build workspace
 ```
 
 
-
-
-
-
 <br>
 <a name="Install-xDebug"></a>
 ## Install xDebug
@@ -311,6 +307,29 @@ To control the behavior of xDebug (in the `php-fpm` Container), you can run the 
 - See the status: `.php-fpm/xdebug status`.
 
 Note: If `.php-fpm/xdebug` doesn't execute and gives `Permission Denied` error the problem can be that file `xdebug` doesn't have execution access. This can be fixed by running `chmod` command  with desired access permissions.
+
+
+
+<br>
+<a name="Install-pcov"></a>
+## Install pcov
+
+1 - First install `pcov` in the Workspace and the PHP-FPM Containers:
+<br>
+a) open the `.env` file
+<br>
+b) search for the `WORKSPACE_INSTALL_PCOV` argument under the Workspace Container
+<br>
+c) set it to `true`
+<br>
+d) search for the `PHP_FPM_INSTALL_PCOV` argument under the PHP-FPM Container
+<br>
+e) set it to `true`
+
+2 - Re-build the containers `docker-compose build workspace php-fpm`
+
+Note that pcov is only supported on PHP 7.1 or newer. For more information on setting up pcov optimally, check the recommended section
+of the [README](https://github.com/krakjoe/pcov)
 
 
 
@@ -2042,6 +2061,19 @@ Remote debug Laravel web and phpunit tests.
 
 
 
+<br>
+<a name="Setup-gcloud"></a>
+## Setup Google Cloud for docker registry
+
+```
+gcloud auth configure-docker
+```
+
+Login to gcloud for use the registry and auth the permission.
+
+```
+gcloud auth login
+```
 
 
 
