@@ -349,6 +349,7 @@ services:
         backend:
             aliases:
               - cableru.test
+              - cablebase.test
 
 ### Blackfire ########################################
     blackfire:
